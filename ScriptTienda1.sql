@@ -96,12 +96,12 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
 -- -------------------------------------------------------------------------------------------------------------------
 -- 3. Realizar dos borrados lógicos y dos borrados físicos de ventas realizadas.
 -- -------------------------------------------------------------------------------------------------------------
 -- BORRADO FISICO
 DELETE FROM venta WHERE idVenta = 1;
+DELETE FROM venta WHERE idVenta = 10;
 -- 
 -- BORRADO LOGICO
 ALTER TABLE venta ADD banActivo BIT;
@@ -109,6 +109,7 @@ ALTER TABLE venta ADD banActivo BIT;
 SELECT * FROM venta WHERE banActivo = 1;
 -- Por lo cual la venta que no se mostrará es la que estado es 0	 
 UPDATE venta  SET banActivo = 0 WHERE idVenta = 4;
+UPDATE venta SET banActivo = 0 WHERE idVenta = 9;
 
 -- ----------------------------------------------------------------------------------------------------------------
 -- 4. Modificar tres productos en su nombre y proveedor que los provee.
